@@ -1,0 +1,24 @@
+name: Selenium POM project
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
+      - name: install nuget packeges
+        run: dotnet restore
+      - name: build the test project
+        run: dotnet build --no-restore
+      - name: run tests
+        run: dotnet test
