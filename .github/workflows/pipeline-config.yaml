@@ -12,13 +12,18 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 6.0.x
-      - name: install nuget packeges
-        run: dotnet restore
-      - name: build the test project
-        run: dotnet build --no-restore
-      - name: run tests
-        run: dotnet test
+
+      - name: Install nuget packeges
+        run: dotnet restore LabSeleniumPOM.sln
+
+      - name: Build the test project
+        run: dotnet build LabSeleniumPOM.sln
+
+      - name: run StudentRegistry tests
+        run: dotnet test StudentRegistry/StudentRegistry.csproj
+        
