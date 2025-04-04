@@ -13,6 +13,7 @@ namespace StudentRegistry.Pages
         public ViewStudentsPage(IWebDriver driver) : base(driver) 
         { 
         }
+        
         public override string PageUrl => "https://cda0c1fe-01f6-476c-b012-867896971e41-00-gxq8cviiys10.janeway.replit.dev/students";
         public ReadOnlyCollection<IWebElement> ListItemsStudents =>
             driver.FindElements(By.CssSelector("body > ul > li"));
